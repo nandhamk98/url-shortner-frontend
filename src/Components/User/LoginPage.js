@@ -1,15 +1,16 @@
 import "./user.css";
+import { useHistory } from "react-router-dom";
 
 export function LoginPage() {
   return (
-    <div className="loginPageContainer">
+    <div className="userPageContainer">
       <div className="loginContainer">
         <h1>Login</h1>
         <div className="userInput">
-          <label for="username" className="userInputLabel">
-            Username<span className="mandatory">*</span>
+          <label for="email" className="userInputLabel">
+            Email<span className="mandatory">*</span>
           </label>
-          <input type="text" id="username" required />
+          <input type="text" id="email" required />
         </div>
         <div className="userInput">
           <label for="password" className="userInputLabel">
