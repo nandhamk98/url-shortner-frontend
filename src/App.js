@@ -4,6 +4,7 @@ import { LoginPage } from "./Components/User/LoginPage";
 import { SignUpPage } from "./Components/User/SignUpPage";
 import { ForgotPasswordPage } from "./Components/User/ForgotPasswordPage";
 import { ResetPasswordPage } from "./Components/User/ResetPasswordPage";
+import { UrlShortnerPage } from "./Components/UrlShortner/UrlShortnerPage";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <ResetPasswordPage />
         </Route>
         <Route path="/" exact>
-          <LoginPage />
+          {/* <LoginPage /> */}
+          <UrlShortnerPage />
         </Route>
       </Switch>
     </div>
