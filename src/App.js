@@ -1,10 +1,15 @@
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import { LoginPage } from "./Components/User/LoginPage";
 
 function App() {
   return (
     <div className="App">
-      <h1>New app</h1>
+      <Switch>
+        <Route path="/" exact>
+          <LoginPage />
+        </Route>
+      </Switch>
     </div>
   );
 }
