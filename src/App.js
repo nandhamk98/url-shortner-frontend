@@ -19,8 +19,7 @@ function App() {
           <ResetPasswordPage />
         </Route>
         <Route path="/" exact>
-          {/* <LoginPage /> */}
-          <ResetPasswordPage />
+          <LoginPage />
         </Route>
       </Switch>
     </div>

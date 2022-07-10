@@ -2,7 +2,7 @@ export function ForgotPasswordPage() {
   return (
     <div className="forgetPasswordMainContainer">
       <div className="forgetPasswordContainer">
-        <h1>forgot password</h1>
+        <h1>Forgot Password</h1>
         <div className="userInput">
           <label for="email" className="userInputLabel">
             Email<span className="mandatory">*</span>

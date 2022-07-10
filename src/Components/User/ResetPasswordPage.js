@@ -2,7 +2,7 @@ export function ResetPasswordPage() {
   return (
     <div className="forgetPasswordMainContainer">
       <div className="forgetPasswordContainer">
-        <h1>reset password</h1>
+        <h1>Reset Password</h1>
         <div className="userInput">
           <label for="Password" className="userInputLabel">
             Password<span className="mandatory">*</span>
