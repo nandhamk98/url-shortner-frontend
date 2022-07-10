@@ -2,6 +2,7 @@ import "./user.css";
 import { useHistory } from "react-router-dom";
 
 export function LoginPage() {
+  const history = useHistory();
   return (
     <div className="userPageContainer">
       <div className="loginContainer">
@@ -23,7 +24,13 @@ export function LoginPage() {
         </div>
         <div className="otherOptions">
           <p>forgot password</p>
-          <p>Create a new account</p>
+          <p
+            onClick={() => {
+              history.push("/sign-up");
+            }}
+          >
+            Create a new account
+          </p>
         </div>
       </div>
     </div>
