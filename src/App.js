@@ -23,7 +23,8 @@ function App() {
           <UrlShortnerPage />
         </Route>
         <Route path="/" exact>
-          <LoginPage />
+          {/* <LoginPage /> */}
+          <UrlShortnerPage />
         </Route>
       </Switch>
     </div>

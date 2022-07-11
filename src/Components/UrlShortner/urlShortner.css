@@ -39,3 +39,18 @@
 .buttonGroup {
   margin: 20px;
 }
+
+.generateRandomString {
+  display: block;
+}
+
+.slugInput {
+  display: flex;
+  flex-direction: row;
+}
+
+.generateRandomString {
+  height: 20px;
+  position: relative;
+  top: 25px;
+}
