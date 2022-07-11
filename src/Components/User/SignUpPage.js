@@ -8,6 +8,8 @@ export function SignUpPage() {
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [statusCode, setStatusCode] = useState(200);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const history = useHistory();
 
@@ -18,15 +20,32 @@ export function SignUpPage() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((response) => {
-      history.push("/");
-    });
+    })
+      .then((response) => {
+        if (!response.ok) {
+          setStatusCode(parseInt(response.status));
+        }
+        return response.json();
+      })
+      .then((response) => {
+        console.log(response);
+        if (statusCode === 200) {
+          history.push("/");
+        } else {
+          setErrorMessage(response.message);
+        }
+      });
   };
 
   return (
     <div className="userPageContainer">
       <div className="SignUpContainer">
         <h1>Signup</h1>
+        {errorMessage !== "" ? (
+          <p style={{ color: "red", margin: "0px" }}>{errorMessage}</p>
+        ) : (
+          ""
+        )}
         <div className="userInput">
           <label className="userInputLabel">
             <div>
