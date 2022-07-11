@@ -33,7 +33,7 @@ export function ActivationLinkPage() {
               activateAccount(data);
             }}
           >
-            set password
+            Activate Account
           </button>
         </div>
       </div>
