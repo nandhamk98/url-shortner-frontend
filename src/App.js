@@ -19,9 +19,11 @@ function App() {
         <Route path="/reset-password/:token">
           <ResetPasswordPage />
         </Route>
-        <Route path="/" exact>
-          {/* <LoginPage /> */}
+        <Route path="/url-shortner" exact>
           <UrlShortnerPage />
+        </Route>
+        <Route path="/" exact>
+          <LoginPage />
         </Route>
       </Switch>
     </div>
