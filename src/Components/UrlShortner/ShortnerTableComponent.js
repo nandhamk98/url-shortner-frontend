@@ -45,7 +45,7 @@ export function ShortnerTableComponent({ getShortnerdata, shortnerData }) {
                 <a
                   href={row.url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   onClick={() => {
                     updateClicks({ _id: row._id });
                   }}
