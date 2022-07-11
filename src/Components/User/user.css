@@ -117,9 +117,31 @@ input {
   font-size: 50px;
   width: 50vw;
   color: white;
-  transform: rotate(20deg);
 }
 
 .shadow {
   text-shadow: 4px 1px 6px rgba(255, 255, 255, 1);
+  animation-name: rotateIcon;
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
