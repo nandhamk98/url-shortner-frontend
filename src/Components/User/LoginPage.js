@@ -1,26 +1,74 @@
 import "./user.css";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { api } from "../../utils/Api";
 
 export function LoginPage() {
   const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const login = (data) => {
+    fetch(`${api}/api/user/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        history.push("/url-shortner");
+      });
+  };
+
   return (
     <div className="userPageContainer">
       <div className="loginContainer">
         <h1>Login</h1>
         <div className="userInput">
-          <label for="email" className="userInputLabel">
-            Email<span className="mandatory">*</span>
+          <label className="userInputLabel">
+            <div>
+              Email<span className="mandatory">*</span>
+            </div>
+            <input
+              type="text"
+              id="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
           </label>
-          <input type="text" id="email" required />
         </div>
         <div className="userInput">
-          <label for="password" className="userInputLabel">
-            Password<span className="mandatory">*</span>
+          <label className="userInputLabel">
+            <div>
+              Password<span className="mandatory">*</span>
+            </div>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+            />
           </label>
-          <input type="password" id="password" required />
         </div>
         <div className="buttonGroup">
-          <button className="loginBtn">Login</button>
+          <button
+            className="loginBtn"
+            onClick={() => {
+              const obj = {
+                email: email,
+                password: password,
+              };
+
+              login(obj);
+            }}
+          >
+            Login
+          </button>
         </div>
         <div className="otherOptions">
           <p>forgot password</p>
