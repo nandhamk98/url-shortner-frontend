@@ -1,3 +1,7 @@
 export function AppTitle() {
-  return <div className="app-title">URL Shortner</div>;
+  return (
+    <div className="app-title">
+      <p className="shadow">URL Shortner</p>
+    </div>
+  );
 }
