@@ -27,7 +27,7 @@ export function ForgotPasswordPage() {
               type="text"
               id="email"
               required
-              value="email"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
