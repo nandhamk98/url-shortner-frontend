@@ -2,11 +2,15 @@ import "./user.css";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { api } from "../../utils/Api";
+import { connect } from "react-redux";
+import { setUserName, setIsLoggedIn } from "../../store/Actions";
 
-export function LoginPage() {
+function LoginPage(props) {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setUserNameAction, setLoggedInAction } = props;
 
   const login = (data) => {
     fetch(`${api}/api/user/login`, {
@@ -19,6 +23,8 @@ export function LoginPage() {
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
+        setUserNameAction(response.username);
+        setLoggedInAction(true);
         history.push("/url-shortner");
       });
   };
@@ -84,3 +90,18 @@ export function LoginPage() {
     </div>
   );
 }
+
+// const mapStoreStateToProps = (state) => {
+//   return {
+//     ...state,
+//   };
+// };
+
+const mapActionsToProps = (dispatch) => {
+  return {
+    setUserNameAction: (username) => dispatch(setUserName(username)),
+    setLoggedInAction: (isLoggedIn) => dispatch(setIsLoggedIn(isLoggedIn)),
+  };
+};
+
+export default connect(null, mapActionsToProps)(LoginPage);

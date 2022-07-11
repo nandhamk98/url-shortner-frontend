@@ -2,20 +2,18 @@ import { NavBar } from "./NavBarComponent";
 import { ShortnerInputComponent } from "./ShortnerInputComponent";
 import { ShortnerTableComponent } from "./ShortnerTableComponent";
 import { api } from "../../utils/Api";
-import { UserContext } from "../../Context/UserContext";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import "./urlShortner.css";
 
-export function UrlShortnerPage() {
+function UrlShortnerPage({ username }) {
   const [shortnerData, setShortnerData] = useState([]);
-
-  const { user } = useContext(UserContext);
 
   const getShortnerdata = () => {
     fetch(`${api}/api/urlShortner/get-shortners`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: user }),
+      body: JSON.stringify({ username: username }),
     })
       .then((response) => response.json())
       .then((response) => {
@@ -24,11 +22,12 @@ export function UrlShortnerPage() {
   };
 
   useEffect(() => {
+    console.log(username);
     getShortnerdata();
   }, []);
   return (
     <div>
-      <NavBar username={user} />
+      <NavBar username={username} />
       <ShortnerInputComponent getShortnerdata={getShortnerdata} />
       <ShortnerTableComponent
         shortnerData={shortnerData}
@@ -37,3 +36,11 @@ export function UrlShortnerPage() {
     </div>
   );
 }
+
+const mapStoreStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+
+export default connect(mapStoreStateToProps, null)(UrlShortnerPage);

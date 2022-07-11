@@ -1,10 +1,10 @@
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import { LoginPage } from "./Components/User/LoginPage";
+import LoginPage from "./Components/User/LoginPage";
 import { SignUpPage } from "./Components/User/SignUpPage";
 import { ForgotPasswordPage } from "./Components/User/ForgotPasswordPage";
 import { ResetPasswordPage } from "./Components/User/ResetPasswordPage";
-import { UrlShortnerPage } from "./Components/UrlShortner/UrlShortnerPage";
+import UrlShortnerPage from "./Components/UrlShortner/UrlShortnerPage";
 
 function App() {
   return (

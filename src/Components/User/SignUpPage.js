@@ -1,36 +1,105 @@
 import "./user.css";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { api } from "../../utils/Api";
 
 export function SignUpPage() {
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const history = useHistory();
+
+  const signup = (data) => {
+    fetch(`${api}/api/user/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((response) => {
+      history.push("/");
+    });
+  };
+
   return (
     <div className="userPageContainer">
       <div className="SignUpContainer">
         <h1>Signup</h1>
         <div className="userInput">
-          <label for="email" className="userInputLabel">
-            Email<span className="mandatory">*</span>
+          <label className="userInputLabel">
+            <div>
+              Email<span className="mandatory">*</span>
+            </div>
+
+            <input
+              type="email"
+              id="username"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </label>
-          <input type="email" id="username" required />
         </div>
         <div className="userInput">
-          <label for="firstName" className="userInputLabel">
-            First Name<span className="mandatory">*</span>
+          <label className="userInputLabel">
+            <div>
+              First Name<span className="mandatory">*</span>
+            </div>
+
+            <input
+              type="text"
+              id="firstName"
+              required
+              value={firstname}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
           </label>
-          <input type="text" id="firstName" required />
         </div>
         <div className="userInput">
-          <label for="lastName" className="userInputLabel">
-            Last Name<span className="mandatory">*</span>
+          <label className="userInputLabel">
+            <div>
+              Last Name<span className="mandatory">*</span>
+            </div>
+
+            <input
+              type="text"
+              id="lastName"
+              value={lastname}
+              onChange={(e) => setLastName(e.target.targetvalue)}
+            />
           </label>
-          <input type="text" id="lastName" required />
         </div>
         <div className="userInput">
-          <label for="password" className="userInputLabel">
-            Password<span className="mandatory">*</span>
+          <label className="userInputLabel">
+            <div>
+              Password<span className="mandatory">*</span>
+            </div>
+            <input
+              type="password"
+              id="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </label>
-          <input type="password" id="password" required />
         </div>
         <div className="buttonGroup">
-          <button className="signUpBtn">Create Account</button>
+          <button
+            className="signUpBtn"
+            onClick={() => {
+              const obj = {
+                firstname,
+                lastname,
+                email,
+                password,
+              };
+              signup(obj);
+            }}
+          >
+            Create Account
+          </button>
         </div>
       </div>
     </div>
