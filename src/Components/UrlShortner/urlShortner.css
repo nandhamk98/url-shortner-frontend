@@ -21,3 +21,21 @@
   border-radius: 50%;
   background-color: gray;
 }
+
+.shortnerInputContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  height: 300px;
+  width: 100vw;
+  flex-wrap: wrap;
+}
+
+.urlInput {
+  width: 300px;
+}
+
+.buttonGroup {
+  margin: 20px;
+}

@@ -103,3 +103,7 @@ input {
   width: 150px;
   border-radius: 5px;
 }
+
+.generateRandomString {
+  margin-left: 5px;
+}
