@@ -77,7 +77,13 @@ function LoginPage(props) {
           </button>
         </div>
         <div className="otherOptions">
-          <p>forgot password</p>
+          <p
+            onClick={() => {
+              history.push("/forgot-password");
+            }}
+          >
+            forgot password
+          </p>
           <p
             onClick={() => {
               history.push("/sign-up");
