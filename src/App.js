@@ -4,12 +4,16 @@ import LoginPage from "./Components/User/LoginPage";
 import { SignUpPage } from "./Components/User/SignUpPage";
 import { ForgotPasswordPage } from "./Components/User/ForgotPasswordPage";
 import { ResetPasswordPage } from "./Components/User/ResetPasswordPage";
+import { ActivationLinkPage } from "./Components/User/ActivationLinkPage";
 import UrlShortnerPage from "./Components/UrlShortner/UrlShortnerPage";
 
 function App() {
   return (
     <div className="App">
       <Switch>
+        <Route path="/activation-page/:id" exact>
+          <ActivationLinkPage />
+        </Route>
         <Route path="/sign-up">
           <SignUpPage />
         </Route>
