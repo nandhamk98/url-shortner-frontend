@@ -112,3 +112,8 @@ input {
 .generateRandomString {
   margin-left: 5px;
 }
+
+.app-title {
+  font-size: 50px;
+  width: 50vw;
+}

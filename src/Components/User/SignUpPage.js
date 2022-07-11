@@ -2,6 +2,7 @@ import "./user.css";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { api } from "../../utils/Api";
+import { AppTitle } from "../Animation/AppTitle";
 
 export function SignUpPage() {
   const [firstname, setFirstName] = useState("");
@@ -121,6 +122,7 @@ export function SignUpPage() {
           </button>
         </div>
       </div>
+      <AppTitle />
     </div>
   );
 }

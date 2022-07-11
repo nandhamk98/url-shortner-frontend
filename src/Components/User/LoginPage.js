@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { api } from "../../utils/Api";
 import { connect } from "react-redux";
 import { setUserName, setIsLoggedIn } from "../../store/Actions";
+import { AppTitle } from "../Animation/AppTitle";
 
 function LoginPage(props) {
   const history = useHistory();
@@ -109,6 +110,7 @@ function LoginPage(props) {
           </p>
         </div>
       </div>
+      <AppTitle />
     </div>
   );
 }
